@@ -34,10 +34,9 @@ public class VisualLogic {
 	@Autowired
 	public TemporaryCasesRepository tempCaseRepository;
 
-	public List<Cases> findAll(ConfigurableApplicationContext run) {
+	public List<Cases> findAll() {
 
 		try {
-			CaseRepository caseRepository = run.getBean(CaseRepository.class);
 			List<Cases> listCases = caseRepository.findAll();
 			for (Cases cases : listCases) {
 				System.out.println(cases);
@@ -53,11 +52,9 @@ public class VisualLogic {
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////
-	public List<Cases> findElement(ConfigurableApplicationContext run, String text) {
+	public List<Cases> findElement(String text) {
 
 		try {
-			CaseRepository caseRepository = run.getBean(CaseRepository.class);
-
 			List<Cases> listCases = caseRepository.findAll();
 			List<Cases> listCases2 = new ArrayList<Cases>();
 			for (Cases cases : listCases) {
